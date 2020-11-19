@@ -24,7 +24,7 @@ class AlbumDetailsActivity : AppCompatActivity() {
         if (position.equals("Sonder Son")){
             viewName.text = position
             viewImage.setImageResource(R.drawable.sonder_son)
-            albumSongs = arrayOf( "Let Me Know","Fuck the World",
+            albumSongs = arrayOf( "Let Me Know",
                 "Bluffin",
                 "Clouded",
                 "Been Away",
