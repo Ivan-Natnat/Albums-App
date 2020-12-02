@@ -8,6 +8,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+
+
 val productsArray = arrayOf(
     "Rehab(Winter in Paris)",
     "Let Me Know","Dead Man Walking",
@@ -49,17 +52,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreateContextMenu(menu, v, menuInfo)
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.long_press, menu)
+
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
+        val menuInfo = item.menuInfo as AdapterView.AdapterContextMenuInfo
         return when(item.itemId){
             R.id.add_to_queue -> {
-                Toast.makeText(this, "Added to Queue", Toast.LENGTH_SHORT).show()
                 val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
                 queuedSong.add(productsArray[info.position])
+                val snackbar = Snackbar.make(findViewById(R.id.songsListView), "${productsArray[menuInfo.position]} is added to the Queue.", Snackbar.LENGTH_LONG)
+                snackbar.setAction("Queue", View.OnClickListener { //Lamda function
+                    val intent = Intent(this, QueueActivity::class.java)
+                    startActivity(intent)
+                })
+                snackbar.show()
                 true
             }
-            else-> super.onContextItemSelected(item)
+            else->{ super.onContextItemSelected(item)}
         }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

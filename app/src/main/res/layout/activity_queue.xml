@@ -23,6 +23,13 @@
         android:layout_height="570dp"
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/queueTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/queueTextView"
+    >
+        <Button
+            android:id="@+id/removeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove from queue" />
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
