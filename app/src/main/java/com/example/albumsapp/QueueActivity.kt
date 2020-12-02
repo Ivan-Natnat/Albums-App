@@ -67,7 +67,7 @@ class QueueActivity : AppCompatActivity() {
                         notificationChannel = NotificationChannel(
                                 channelId, description, NotificationManager.IMPORTANCE_HIGH)
                         notificationChannel.enableLights(true)
-                        notificationChannel.lightColor = Color.GREEN
+                        notificationChannel.lightColor = Color.CYAN
                         notificationChannel.enableVibration(false)
                         notificationManager.createNotificationChannel(notificationChannel)
 
